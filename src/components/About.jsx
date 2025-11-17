@@ -1,29 +1,34 @@
 import { Code2, Database, Brain } from 'lucide-react'
+import { useLanguage } from '../context/LanguageContext'
+import { translations } from '../translations'
 
 export default function About() {
+    const { language } = useLanguage()
+    const t = translations[language]
+
     const features = [
         {
             icon: Code2,
-            title: 'Backend Development',
-            description: 'Specialized in building scalable APIs and backend systems with Node.js and Python/FastAPI.'
+            title: t.about.backend,
+            description: t.about.backendDesc
         },
         {
             icon: Database,
-            title: 'Database Design',
-            description: 'Experience with both relational (MySQL, PostgreSQL) and NoSQL (MongoDB, Firebase) databases.'
+            title: t.about.database,
+            description: t.about.databaseDesc
         },
         {
             icon: Brain,
-            title: 'AI Integration',
-            description: 'Integrating AI solutions into applications to enhance functionality and user experience.'
+            title: t.about.ai,
+            description: t.about.aiDesc
         }
     ]
 
     return (
         <section id="about" className="py-20 px-6 bg-gray-900/50 border-y border-gray-900">
             <div className="max-w-6xl mx-auto">
-                <h2 className="text-4xl md:text-5xl font-bold mb-4">About Me</h2>
-                <p className="text-gray-400 mb-12 text-lg">What I do and what I'm passionate about</p>
+                <h2 className="text-4xl md:text-5xl font-bold mb-4">{t.about.title}</h2>
+                <p className="text-gray-400 mb-12 text-lg">{t.about.subtitle}</p>
 
                 <div className="grid md:grid-cols-3 gap-8">
                     {features.map((feature) => {
@@ -44,15 +49,12 @@ export default function About() {
                 </div>
 
                 <div className="mt-12 p-8 bg-gray-900 rounded-lg border border-gray-800">
-                    <h3 className="text-2xl font-bold mb-4">My Journey</h3>
+                    <h3 className="text-2xl font-bold mb-4">{t.about.journey}</h3>
                     <p className="text-gray-300 leading-relaxed mb-4">
-                        As a multimedia engineer, I've developed a unique perspective on technology that combines
-                        creative problem-solving with technical expertise. My focus is on backend development where
-                        I can build solid foundations that power great applications.
+                        {t.about.journeyText1}
                     </p>
                     <p className="text-gray-300 leading-relaxed">
-                        Whether it's architecting scalable systems, optimizing databases, or integrating cutting-edge
-                        AI solutions, I'm committed to delivering high-quality code and innovative solutions.
+                        {t.about.journeyText2}
                     </p>
                 </div>
             </div>

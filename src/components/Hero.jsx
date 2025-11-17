@@ -1,24 +1,28 @@
 import { Github, Linkedin, ArrowRight } from 'lucide-react'
+import { useLanguage } from '../context/LanguageContext'
+import { translations } from '../translations'
 
 export default function Hero() {
+    const { language } = useLanguage()
+    const t = translations[language]
+
     return (
         <section className="pt-32 pb-20 px-6 max-w-6xl mx-auto">
             <div className="mb-12">
                 <div className="inline-block mb-4 px-4 py-2 bg-purple-600/20 text-purple-300 rounded-full text-sm font-medium">
-                    👋 Welcome to my portfolio
+                    {t.hero.welcome}
                 </div>
 
                 <h1 className="text-6xl md:text-7xl font-bold mb-4 leading-tight">
-                    Angel Quintero
+                    {t.hero.title}
                 </h1>
 
-                <p className="text-2xl text-gray-400 mb-2">Ingeniero Multimedia</p>
-                <p className="text-lg text-purple-400 font-medium mb-6">Backend Developer & AI Enthusiast</p>
+                <p className="text-2xl text-gray-400 mb-2">{t.hero.subtitle}</p>
+                <p className="text-lg text-purple-400 font-medium mb-6">{t.hero.role}</p>
             </div>
 
             <p className="text-gray-300 text-lg max-w-2xl leading-relaxed mb-8">
-                I'm a multimedia engineer focused on building robust backend systems and integrating AI solutions.
-                Passionate about scalable architecture, clean code, and creating meaningful digital experiences.
+                {t.hero.description}
             </p>
 
             <div className="flex flex-wrap gap-4 mb-12">
@@ -44,7 +48,7 @@ export default function Hero() {
                     href="#projects"
                     className="flex items-center gap-2 px-6 py-3 border border-gray-700 hover:border-purple-400 rounded-lg transition font-medium"
                 >
-                    View My Work
+                    {t.hero.viewWork}
                     <ArrowRight size={20} />
                 </a>
             </div>

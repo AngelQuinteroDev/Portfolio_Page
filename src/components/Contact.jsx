@@ -1,10 +1,15 @@
 import { Mail, Github, Linkedin, ExternalLink, ArrowRight } from 'lucide-react'
+import { useLanguage } from '../context/LanguageContext'
+import { translations } from '../translations'
 
 export default function Contact() {
+    const { language } = useLanguage()
+    const t = translations[language]
+
     const contactMethods = [
         {
             icon: Mail,
-            label: 'Email',
+            label: language === 'es' ? 'Email' : 'Email',
             value: 'angel@angelquintero.dev',
             link: 'mailto:angel@angelquintero.dev'
         },
@@ -24,15 +29,14 @@ export default function Contact() {
 
     return (
         <section id="contact" className="py-20 px-6 max-w-6xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Get In Touch</h2>
-            <p className="text-gray-400 mb-12 text-lg">Let's connect and explore opportunities together</p>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">{t.contact.title}</h2>
+            <p className="text-gray-400 mb-12 text-lg">{t.contact.subtitle}</p>
 
             <div className="grid md:grid-cols-2 gap-12">
                 {/* Left side */}
                 <div>
                     <p className="text-gray-300 text-lg leading-relaxed mb-8">
-                        I'm always interested in hearing about new projects and opportunities.
-                        Whether you have a question or just want to say hello, feel free to get in touch!
+                        {t.contact.description}
                     </p>
 
                     <div className="space-y-6">
@@ -59,7 +63,7 @@ export default function Contact() {
 
                     <div className="mt-8 p-6 bg-purple-600/10 border border-purple-600/30 rounded-lg">
                         <p className="text-purple-300 text-sm font-medium">
-                            💡 Tip: Email is usually the fastest way to reach me
+                            {t.contact.tip}
                         </p>
                     </div>
                 </div>
@@ -67,7 +71,7 @@ export default function Contact() {
                 {/* Right side */}
                 <div className="space-y-6">
                     <div className="p-8 bg-gray-900 rounded-lg border border-gray-800">
-                        <h3 className="text-2xl font-bold mb-4">My Personal Domain</h3>
+                        <h3 className="text-2xl font-bold mb-4">{t.contact.domain}</h3>
                         <a
                             href="https://angelquintero.dev"
                             target="_blank"
@@ -78,21 +82,20 @@ export default function Contact() {
                             <ExternalLink size={28} />
                         </a>
                         <p className="text-gray-400 mt-4">
-                            Visit my personal domain for more information and additional resources.
+                            {t.contact.domainDesc}
                         </p>
                     </div>
 
                     <div className="p-8 bg-gray-900 rounded-lg border border-gray-800">
-                        <h3 className="text-xl font-bold mb-4">Let's Work Together</h3>
+                        <h3 className="text-xl font-bold mb-4">{t.contact.workTogether}</h3>
                         <p className="text-gray-300 mb-6">
-                            I'm open to freelance projects, full-time opportunities, and collaborations.
-                            Let's create something amazing together!
+                            {t.contact.workTogetherDesc}
                         </p>
                         <a
                             href="mailto:angel@angelquintero.dev"
                             className="inline-flex items-center gap-2 px-6 py-3 bg-purple-600 hover:bg-purple-700 rounded-lg transition font-medium"
                         >
-                            Start a Conversation
+                            {t.contact.startConversation}
                             <ArrowRight size={20} />
                         </a>
                     </div>

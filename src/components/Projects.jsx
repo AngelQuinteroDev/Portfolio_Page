@@ -1,45 +1,62 @@
 import { ExternalLink, Github } from 'lucide-react'
+import { useLanguage } from '../context/LanguageContext'
+import { translations } from '../translations'
 
 export default function Projects() {
+    const { language } = useLanguage()
+    const t = translations[language]
+
     const projects = [
         {
-            title: 'E-Commerce API',
-            description: 'A scalable REST API for an e-commerce platform with user authentication, product management, and order processing.',
+            title: language === 'es' ? 'API de E-Commerce' : 'E-Commerce API',
+            description: language === 'es'
+                ? 'Una API REST escalable para una plataforma de e-commerce con autenticación de usuarios, gestión de productos y procesamiento de pedidos.'
+                : 'A scalable REST API for an e-commerce platform with user authentication, product management, and order processing.',
             tech: ['Node.js', 'Express', 'PostgreSQL', 'JWT'],
             github: 'https://github.com/AngelQuinteroDev',
             live: '#'
         },
         {
-            title: 'AI Content Generator',
-            description: 'Backend service that integrates AI models to generate content. Includes caching and optimization for better performance.',
+            title: language === 'es' ? 'Generador de Contenido IA' : 'AI Content Generator',
+            description: language === 'es'
+                ? 'Servicio backend que integra modelos de IA para generar contenido. Incluye caché y optimización para mejor rendimiento.'
+                : 'Backend service that integrates AI models to generate content. Includes caching and optimization for better performance.',
             tech: ['Python', 'FastAPI', 'OpenAI', 'Redis'],
             github: 'https://github.com/AngelQuinteroDev',
             live: '#'
         },
         {
-            title: 'Real-time Analytics Dashboard',
-            description: 'Backend system for processing and streaming real-time analytics data with WebSocket support.',
+            title: language === 'es' ? 'Dashboard de Análisis en Tiempo Real' : 'Real-time Analytics Dashboard',
+            description: language === 'es'
+                ? 'Sistema backend para procesar y transmitir datos de análisis en tiempo real con soporte de WebSocket.'
+                : 'Backend system for processing and streaming real-time analytics data with WebSocket support.',
             tech: ['Node.js', 'MongoDB', 'WebSockets', 'Docker'],
             github: 'https://github.com/AngelQuinteroDev',
             live: '#'
         },
         {
-            title: 'Multi-tenant SaaS Platform',
-            description: 'Robust backend architecture for a multi-tenant SaaS application with database isolation and scalability.',
+            title: language === 'es' ? 'Plataforma SaaS Multi-inquilino' : 'Multi-tenant SaaS Platform',
+            description: language === 'es'
+                ? 'Arquitectura backend robusta para una aplicación SaaS multi-inquilino con aislamiento de base de datos y escalabilidad.'
+                : 'Robust backend architecture for a multi-tenant SaaS application with database isolation and scalability.',
             tech: ['Python', 'FastAPI', 'PostgreSQL', 'Firebase'],
             github: 'https://github.com/AngelQuinteroDev',
             live: '#'
         },
         {
-            title: 'Machine Learning Pipeline',
-            description: 'Automated pipeline for training, testing, and deploying ML models with monitoring and logging.',
+            title: language === 'es' ? 'Pipeline de Machine Learning' : 'Machine Learning Pipeline',
+            description: language === 'es'
+                ? 'Pipeline automatizado para entrenar, probar e implementar modelos de ML con monitoreo y registro de datos.'
+                : 'Automated pipeline for training, testing, and deploying ML models with monitoring and logging.',
             tech: ['Python', 'scikit-learn', 'Docker', 'PostgreSQL'],
             github: 'https://github.com/AngelQuinteroDev',
             live: '#'
         },
         {
-            title: 'Mobile Backend Service',
-            description: 'High-performance backend service for mobile applications with offline support and data synchronization.',
+            title: language === 'es' ? 'Servicio Backend Móvil' : 'Mobile Backend Service',
+            description: language === 'es'
+                ? 'Servicio backend de alto rendimiento para aplicaciones móviles con soporte offline y sincronización de datos.'
+                : 'High-performance backend service for mobile applications with offline support and data synchronization.',
             tech: ['Node.js', 'MongoDB', 'Firebase', 'Firestore'],
             github: 'https://github.com/AngelQuinteroDev',
             live: '#'
@@ -49,8 +66,8 @@ export default function Projects() {
     return (
         <section id="projects" className="py-20 px-6 bg-gray-900/50 border-y border-gray-900">
             <div className="max-w-6xl mx-auto">
-                <h2 className="text-4xl md:text-5xl font-bold mb-4">Featured Projects</h2>
-                <p className="text-gray-400 mb-12 text-lg">Projects that showcase my skills and experience</p>
+                <h2 className="text-4xl md:text-5xl font-bold mb-4">{t.projects.title}</h2>
+                <p className="text-gray-400 mb-12 text-lg">{t.projects.subtitle}</p>
 
                 <div className="grid md:grid-cols-2 gap-8">
                     {projects.map((project, idx) => (
@@ -85,7 +102,7 @@ export default function Projects() {
                                     className="flex items-center gap-2 text-purple-400 hover:text-purple-300 transition"
                                 >
                                     <Github size={18} />
-                                    Code
+                                    {t.projects.code}
                                 </a>
                                 {project.live !== '#' && (
                                     <a
@@ -94,7 +111,7 @@ export default function Projects() {
                                         rel="noopener noreferrer"
                                         className="flex items-center gap-2 text-purple-400 hover:text-purple-300 transition ml-auto"
                                     >
-                                        Live Demo
+                                        {t.projects.liveDemo}
                                         <ExternalLink size={18} />
                                     </a>
                                 )}

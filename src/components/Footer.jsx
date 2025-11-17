@@ -1,6 +1,10 @@
 import { Github, Linkedin, Mail } from 'lucide-react'
+import { useLanguage } from '../context/LanguageContext'
+import { translations } from '../translations'
 
 export default function Footer() {
+    const { language } = useLanguage()
+    const t = translations[language]
     const currentYear = new Date().getFullYear()
 
     const socialLinks = [
@@ -29,7 +33,7 @@ export default function Footer() {
                         <h3 className="text-xl font-bold bg-gradient-to-r from-purple-500 to-purple-700 bg-clip-text text-transparent mb-2">
                             Angel Quintero
                         </h3>
-                        <p className="text-gray-400 text-sm">Backend Developer & AI Enthusiast</p>
+                        <p className="text-gray-400 text-sm">{t.footer.role}</p>
                     </div>
 
                     <div className="flex gap-6 mt-6 md:mt-0">
@@ -52,8 +56,8 @@ export default function Footer() {
                 </div>
 
                 <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-gray-500 text-sm">
-                    <p>© {currentYear} Angel Quintero. All rights reserved.</p>
-                    <p>Made with React & Tailwind CSS</p>
+                    <p>© {currentYear} Angel Quintero. {t.footer.rights}</p>
+                    <p>{t.footer.made}</p>
                 </div>
             </div>
         </footer>
