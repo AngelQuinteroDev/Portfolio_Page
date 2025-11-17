@@ -20,7 +20,7 @@ export default function Footer() {
         },
         {
             icon: Mail,
-            href: 'mailto:angel@angelquintero.dev',
+            href: 'mailto:angelquintero.dev@gmail.com',
             label: 'Email'
         }
     ]

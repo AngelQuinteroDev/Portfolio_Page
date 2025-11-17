@@ -10,7 +10,7 @@ export default function Contact() {
         {
             icon: Mail,
             label: language === 'es' ? 'Email' : 'Email',
-            value: 'angel@angelquintero.dev',
+            value: 'angelquintero.dev@gmail.com',
             link: 'mailto:angelquintero.dev@gmail.com'
         },
         {
