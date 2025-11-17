@@ -11,7 +11,7 @@ export default function Contact() {
             icon: Mail,
             label: language === 'es' ? 'Email' : 'Email',
             value: 'angel@angelquintero.dev',
-            link: 'mailto:angel@angelquintero.dev'
+            link: 'mailto:angelquintero.dev@gmail.com'
         },
         {
             icon: Github,
