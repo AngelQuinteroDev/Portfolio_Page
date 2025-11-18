@@ -27,20 +27,23 @@ export default function About() {
     return (
         <section id="about" className="py-20 px-6 bg-gray-900/50 border-y border-gray-900">
             <div className="max-w-6xl mx-auto">
-                <h2 className="text-4xl md:text-5xl font-bold mb-4">{t.about.title}</h2>
-                <p className="text-gray-400 mb-12 text-lg">{t.about.subtitle}</p>
+                <h2 className="text-4xl md:text-5xl font-bold mb-4 animate-slideInUp">{t.about.title}</h2>
+                <p className="text-gray-400 mb-12 text-lg animate-slideInUp" style={{ animationDelay: '0.1s' }}>
+                    {t.about.subtitle}
+                </p>
 
                 <div className="grid md:grid-cols-3 gap-8">
-                    {features.map((feature) => {
+                    {features.map((feature, idx) => {
                         const Icon = feature.icon
                         return (
                             <div
                                 key={feature.title}
-                                className="p-8 bg-gray-900 rounded-lg border border-gray-800 hover:border-purple-600/50 hover:bg-gray-900/80 transition group cursor-pointer"
+                                className="p-8 bg-gray-900 rounded-lg border border-gray-800 hover:border-purple-600/50 hover:bg-gray-900/80 transition group cursor-pointer animate-scaleIn hover:scale-105 transform duration-300 hover:shadow-lg hover:shadow-purple-600/20"
+                                style={{ animationDelay: `${0.15 * idx}s` }}
                             >
-                                <Icon size={40} className="text-purple-400 mb-4 group-hover:scale-110 transition" />
-                                <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-                                <p className="text-gray-400 leading-relaxed">
+                                <Icon size={40} className="text-purple-400 mb-4 group-hover:scale-125 transition-transform group-hover:rotate-6" />
+                                <h3 className="text-xl font-bold mb-3 group-hover:text-purple-300 transition">{feature.title}</h3>
+                                <p className="text-gray-400 leading-relaxed group-hover:text-gray-300 transition">
                                     {feature.description}
                                 </p>
                             </div>
@@ -48,7 +51,7 @@ export default function About() {
                     })}
                 </div>
 
-                <div className="mt-12 p-8 bg-gray-900 rounded-lg border border-gray-800">
+                <div className="mt-12 p-8 bg-gray-900 rounded-lg border border-gray-800 animate-slideInUp" style={{ animationDelay: '0.5s' }}>
                     <h3 className="text-2xl font-bold mb-4">{t.about.journey}</h3>
                     <p className="text-gray-300 leading-relaxed mb-4">
                         {t.about.journeyText1}

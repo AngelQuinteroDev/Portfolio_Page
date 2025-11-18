@@ -66,28 +66,32 @@ export default function Projects() {
     return (
         <section id="projects" className="py-20 px-6 bg-gray-900/50 border-y border-gray-900">
             <div className="max-w-6xl mx-auto">
-                <h2 className="text-4xl md:text-5xl font-bold mb-4">{t.projects.title}</h2>
-                <p className="text-gray-400 mb-12 text-lg">{t.projects.subtitle}</p>
+                <h2 className="text-4xl md:text-5xl font-bold mb-4 animate-slideInUp">{t.projects.title}</h2>
+                <p className="text-gray-400 mb-12 text-lg animate-slideInUp" style={{ animationDelay: '0.1s' }}>
+                    {t.projects.subtitle}
+                </p>
 
                 <div className="grid md:grid-cols-2 gap-8">
                     {projects.map((project, idx) => (
                         <div
                             key={idx}
-                            className="group p-8 bg-gray-900 rounded-lg border border-gray-800 hover:border-purple-600 transition hover:shadow-lg hover:shadow-purple-600/10"
+                            className="group p-8 bg-gray-900 rounded-lg border border-gray-800 hover:border-purple-600 transition hover:shadow-xl hover:shadow-purple-600/20 hover:-translate-y-2 duration-300 animate-scaleIn"
+                            style={{ animationDelay: `${0.1 * idx}s` }}
                         >
                             <h3 className="text-xl font-bold mb-3 group-hover:text-purple-400 transition">
                                 {project.title}
                             </h3>
 
-                            <p className="text-gray-400 mb-4 leading-relaxed">
+                            <p className="text-gray-400 mb-4 leading-relaxed group-hover:text-gray-300 transition">
                                 {project.description}
                             </p>
 
                             <div className="flex flex-wrap gap-2 mb-6">
-                                {project.tech.map((tech) => (
+                                {project.tech.map((tech, techIdx) => (
                                     <span
                                         key={tech}
-                                        className="px-3 py-1 bg-purple-600/20 text-purple-300 rounded-full text-sm font-medium"
+                                        className="px-3 py-1 bg-purple-600/20 text-purple-300 rounded-full text-sm font-medium hover:bg-purple-600/40 transition animate-fadeIn"
+                                        style={{ animationDelay: `${0.05 * techIdx}s` }}
                                     >
                                         {tech}
                                     </span>
@@ -99,7 +103,7 @@ export default function Projects() {
                                     href={project.github}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="flex items-center gap-2 text-purple-400 hover:text-purple-300 transition"
+                                    className="flex items-center gap-2 text-purple-400 hover:text-purple-300 transition hover:translate-x-1 duration-200"
                                 >
                                     <Github size={18} />
                                     {t.projects.code}
@@ -109,7 +113,7 @@ export default function Projects() {
                                         href={project.live}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="flex items-center gap-2 text-purple-400 hover:text-purple-300 transition ml-auto"
+                                        className="flex items-center gap-2 text-purple-400 hover:text-purple-300 transition ml-auto hover:translate-x-1 duration-200"
                                     >
                                         {t.projects.liveDemo}
                                         <ExternalLink size={18} />
