@@ -8,59 +8,29 @@ export default function Projects() {
 
     const projects = [
         {
-            title: language === 'es' ? 'API de E-Commerce' : 'E-Commerce API',
+            title: language === 'es'
+                ? 'Sistema de Automatización de Parqueaderos con IA'
+                : 'Parking Automation System with AI',
             description: language === 'es'
-                ? 'Una API REST escalable para una plataforma de e-commerce con autenticación de usuarios, gestión de productos y procesamiento de pedidos.'
-                : 'A scalable REST API for an e-commerce platform with user authentication, product management, and order processing.',
-            tech: ['Node.js', 'Express', 'PostgreSQL', 'JWT'],
-            github: 'https://github.com/AngelQuinteroDev',
+                ? 'Sistema que integra visión por computador con un modelo YOLO entrenado para reconocer placas colombianas. La API fue desarrollada con FastAPI y se comunica con un backend en Node.js/Express implementado con el patrón Repository y MVC para almacenar información en MySQL.'
+                : 'System integrating computer vision using a custom YOLO model trained to detect Colombian license plates. The API was built with FastAPI and communicates with a Node.js/Express backend using the Repository and MVC patterns to store data in a MySQL database.',
+            tech: ['FastAPI', 'YOLO', 'Python', 'Node.js', 'Express', 'MySQL'],
+            github: 'https://github.com/AngelQuinteroDev/Parking-Vision-System',
             live: '#'
         },
+
         {
-            title: language === 'es' ? 'Generador de Contenido IA' : 'AI Content Generator',
+            title: language === 'es'
+                ? 'WorkOut Tracker'
+                : 'WorkOut Tracker',
             description: language === 'es'
-                ? 'Servicio backend que integra modelos de IA para generar contenido. Incluye caché y optimización para mejor rendimiento.'
-                : 'Backend service that integrates AI models to generate content. Includes caching and optimization for better performance.',
-            tech: ['Python', 'FastAPI', 'OpenAI', 'Redis'],
-            github: 'https://github.com/AngelQuinteroDev',
-            live: '#'
-        },
-        {
-            title: language === 'es' ? 'Dashboard de Análisis en Tiempo Real' : 'Real-time Analytics Dashboard',
-            description: language === 'es'
-                ? 'Sistema backend para procesar y transmitir datos de análisis en tiempo real con soporte de WebSocket.'
-                : 'Backend system for processing and streaming real-time analytics data with WebSocket support.',
-            tech: ['Node.js', 'MongoDB', 'WebSockets', 'Docker'],
-            github: 'https://github.com/AngelQuinteroDev',
-            live: '#'
-        },
-        {
-            title: language === 'es' ? 'Plataforma SaaS Multi-inquilino' : 'Multi-tenant SaaS Platform',
-            description: language === 'es'
-                ? 'Arquitectura backend robusta para una aplicación SaaS multi-inquilino con aislamiento de base de datos y escalabilidad.'
-                : 'Robust backend architecture for a multi-tenant SaaS application with database isolation and scalability.',
-            tech: ['Python', 'FastAPI', 'PostgreSQL', 'Firebase'],
-            github: 'https://github.com/AngelQuinteroDev',
-            live: '#'
-        },
-        {
-            title: language === 'es' ? 'Pipeline de Machine Learning' : 'Machine Learning Pipeline',
-            description: language === 'es'
-                ? 'Pipeline automatizado para entrenar, probar e implementar modelos de ML con monitoreo y registro de datos.'
-                : 'Automated pipeline for training, testing, and deploying ML models with monitoring and logging.',
-            tech: ['Python', 'scikit-learn', 'Docker', 'PostgreSQL'],
-            github: 'https://github.com/AngelQuinteroDev',
-            live: '#'
-        },
-        {
-            title: language === 'es' ? 'Servicio Backend Móvil' : 'Mobile Backend Service',
-            description: language === 'es'
-                ? 'Servicio backend de alto rendimiento para aplicaciones móviles con soporte offline y sincronización de datos.'
-                : 'High-performance backend service for mobile applications with offline support and data synchronization.',
-            tech: ['Node.js', 'MongoDB', 'Firebase', 'Firestore'],
-            github: 'https://github.com/AngelQuinteroDev',
+                ? 'Aplicación backend desarrollada con NestJS y TypeScript para registrar entrenamientos, rutinas y progreso de usuarios. Implementa autenticación segura con JWT y utiliza PostgreSQL para la persistencia de datos.'
+                : 'Backend application built with NestJS and TypeScript to track workouts, routines, and user progress. Implements secure authentication with JWT and uses PostgreSQL for data persistence.',
+            tech: ['NestJS', 'TypeScript', 'PostgreSQL', 'JWT'],
+            github: 'https://github.com/AngelQuinteroDev/Workout-Tracker', 
             live: '#'
         }
+
     ]
 
     return (
